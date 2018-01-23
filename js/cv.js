@@ -79,6 +79,7 @@ document.addEventListener("touchstart", function (e) {
 
 !function () {
 	var a = document.querySelectorAll("a");
+	var wrap = document.querySelector(".wrapper");
 	for (var i = 0;i < a.length; i++) {
 		a[i].addEventListener("touchmove",function() {
 			this.isMove = true;
@@ -90,6 +91,8 @@ document.addEventListener("touchstart", function (e) {
 			this.isMove = false;
 		})
 	}
+	console.log(window.screen.availHeight, document.body.clientHeight)
+	wrap.style.height = document.body.clientHeight + "px";
 }();
 
 function getStyle(obj, key) {
@@ -129,6 +132,7 @@ function getStyle(obj, key) {
 	var startPoint = 0;
 	var initPoint = {};
 	var startY = 0;
+	var getDisY = 0;
 	var minY = wrap.offsetHeight - content.offsetHeight;
 
 	if (navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
@@ -136,18 +140,22 @@ function getStyle(obj, key) {
 		   	content.style.transition = content.style.WebkitTransition = "none";
 		   	startPoint = e.changedTouches[0].pageY;
 		   	startY = cssTransform(content, "translateY");
-		   	isVertical = true;
+		   	isVertical = true;	  
+		   	times = Math.round(cssTransform(content, "translateY") / wrapHeight); 	
 	   	});
 
 	   	wrap.addEventListener("touchmove", (e) => {
 		   	var nowPoint = e.changedTouches[0].pageY;
 		   	var dis = nowPoint - startPoint + startY;
 		   	var chooseNum = parseFloat(getStyle(document.querySelector("html"), "fontSize"));
+		   	getDisY = nowPoint - startPoint;
 		   	if (dis >= 0) {
 		   		dis = 0;
+		   		getDisY = 0;
 		   	}
 		   	if (dis <= minY) {
 		   		dis = minY;
+		   		getDisY = 0;
 		   	}
 		   	if (isVertical) {
 		   		cssTransform(content, "translateY", dis);
@@ -161,8 +169,12 @@ function getStyle(obj, key) {
 	   	});
 
 	   	wrap.addEventListener("touchend", () => {
-		   	var endPoint = cssTransform(content, "translateY");
-		   	times = Math.round(endPoint / wrapHeight);
+		   	if (getDisY > 0 && getDisY > (wrapHeight / 4)) {
+		   		times++;
+		   	} 
+		   	if (getDisY < 0 && getDisY < -(wrapHeight / 4)) {
+		   		times--;
+		   	}
 		   	content.style.transition = content.style.WebkitTransition = ".5s";
 		   	pic.style.transform = "";
 		   	pic.style.transition = pic.style.WebkitTransition = "all .5s";

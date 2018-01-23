@@ -170,7 +170,7 @@
 	padding: 10rem 2rem;
 	text-align: left;
 	line-height: 2;
-	font-size: 0.7rem;
+	font-size: .6rem;
 	color: #726c6c;
 	transition: all 1s linear;
 }
@@ -244,8 +244,8 @@ svg {
 	top: 50%;
 	left: 50%;
 	transform: translate3d(-50%, -50%, 0);
-	width: 14rem;
-	height: 15rem;
+	width: 12rem;
+	height: 13rem;
 	z-index: 10;
 }
 .works-wrap-ul {
@@ -272,22 +272,22 @@ svg {
 	font-size: 0.5rem;
 }
 .works-wrap li:nth-child(1) {
-	background: url(../img/11.jpg) center center / cover no-repeat;
+	background: url(../img/11.JPG) center center / cover no-repeat;
 }
 .works-wrap li:nth-child(2) {
 	background: url(../img/06.gif) center center / cover no-repeat;
 }
 .works-wrap li:nth-child(3) {
-	background: url(../img/10.jpg) center center / cover no-repeat;
+	background: url(../img/10.JPG) center center / cover no-repeat;
 }
 .works-wrap li:nth-child(4) {
 	background: url(../img/05.gif) center center / cover no-repeat;
 }
 .works-wrap li:nth-child(5) {
-	background: url(../img/08.jpg) center center / cover no-repeat;
+	background: url(../img/08.JPG) center center / cover no-repeat;
 }
 .works-wrap li:nth-child(6) {
-	background: url(../img/09.jpg) center center / cover no-repeat;
+	background: url(../img/09.JPG) center center / cover no-repeat;
 }
 .des-wrap {
 	position: absolute;
