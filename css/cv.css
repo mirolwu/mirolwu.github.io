@@ -243,7 +243,7 @@ svg {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate3d(-50%, -45%, 0);
+	transform: translate3d(-50%, -47%, 0);
 	width: 12rem;
 	height: 13rem;
 	z-index: 10;
