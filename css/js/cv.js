@@ -73,11 +73,6 @@ function myAddEvent(event, fn) {
 };
 
 
-// document.addEventListener("touchstart", function (e) {
-// 	e.preventDefault();
-// })
-alert(window.innerWidth, window.innerHeight)
-
 !function () {
 	var a = document.querySelectorAll("a");
 	var wrap = document.querySelector(".wrapper");
@@ -137,7 +132,6 @@ function getStyle(obj, key) {
 
 	if (navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
 	   	wrap.addEventListener("touchstart", (e) => {
-	   		e.preventDefault();
 		   	content.style.transition = content.style.WebkitTransition = "none";
 		   	startPoint = e.changedTouches[0].pageY;
 		   	startY = cssTransform(content, "translateY");
@@ -146,6 +140,7 @@ function getStyle(obj, key) {
 	   	});
 
 	   	wrap.addEventListener("touchmove", (e) => {
+	   		e.preventDefault();
 		   	var nowPoint = e.changedTouches[0].pageY;
 		   	var dis = nowPoint - startPoint + startY;
 		   	var chooseNum = parseFloat(getStyle(document.querySelector("html"), "fontSize"));
@@ -163,7 +158,7 @@ function getStyle(obj, key) {
 		   	}
 
 		   	if (times == -1) {
-		   		var picDis = parseFloat(7.5 + (nowPoint - startPoint) / chooseNum);
+		   		var picDis = parseFloat(6.5 + (nowPoint - startPoint) / chooseNum);
 		   		pic.style.transition = "none";
 		   		pic.style.transform = "translate3d(-6.75rem, " + picDis + "rem, 0) scale(4)";
 		   	}
@@ -308,13 +303,13 @@ function getStyle(obj, key) {
 		});
 
 		worksWrap.addEventListener("touchend", () => {
-			var arr = [[-3.6, -5.3], [3.6, -5.3], [-3.6, 1.5], [3.6, 1.5], [-3.6, 8.3], [3.6, 8.3]];
+			var arr = [[-3.6, -4], [3.6, -4], [-3.6, 1.5], [3.6, 1.5], [-3.6, 7], [3.6, 7]];
 			isWorksFirst = false;
 			worksLi[5].style.opacity = 1;
 			worksLi[5].style.transformOrigin = "center center";
 			worksLi[5].style.transition = "all .5s linear";
 			for (var i = 0; i < worksLi.length; i++) {
-				worksLi[i].style.transform = "translate3d(" + arr[i][0] + "rem," + arr[i][1] + "rem, 0) scale(.4)";
+				worksLi[i].style.transform = "translate3d(" + arr[i][0] + "rem," + arr[i][1] + "rem, 0) scale(.35)";
 			}
 		})
 
