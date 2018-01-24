@@ -73,22 +73,20 @@ function myAddEvent(event, fn) {
 };
 
 
-!function () {
-	var a = document.querySelectorAll("a");
-	var wrap = document.querySelector(".wrapper");
-	for (var i = 0;i < a.length; i++) {
-		a[i].addEventListener("touchmove",function() {
-			this.isMove = true;
-		});
-		a[i].addEventListener("touchend",function() {
-			if (!this.isMove) {
-				window.location.href = this.href;
-			}
-			this.isMove = false;
-		})
-	}
-	wrap.style.height = window.innerHeight + "px";
-}();
+// !function () {
+// 	var a = document.querySelectorAll("a");
+// 	for (var i = 0;i < a.length; i++) {
+// 		a[i].addEventListener("touchmove",function() {
+// 			this.isMove = true;
+// 		});
+// 		a[i].addEventListener("touchend",function() {
+// 			if (!this.isMove) {
+// 				window.location.href = this.href;
+// 			}
+// 			this.isMove = false;
+// 		})
+// 	}
+// }();
 
 function getStyle(obj, key) {
     if (obj.currentStyle) {
@@ -311,7 +309,7 @@ function getStyle(obj, key) {
 			worksLi[5].style.transformOrigin = "center center";
 			worksLi[5].style.transition = "all .5s linear";
 			if (isFirstTouch) {
-				e.preventDefault();
+				e.preventDefault()
 				for (var i = 0; i < worksLi.length; i++) {
 					worksLi[i].style.transform = "translate3d(" + arr[i][0] + "rem," + arr[i][1] + "rem, 0) scale(.35)";
 				}
