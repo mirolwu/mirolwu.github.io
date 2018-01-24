@@ -1,0 +1,370 @@
+@charset "utf-8";
+
+html,
+body {
+	font-family: "Microsoft YaHei", "宋体", Arial, Helvetica, sans-serif;
+	background-color: #090a0b;
+}
+html, body, div, p, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form, input, select, textarea {padding: 0; margin: 0;}
+a {
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: #a69e99;
+}
+ul {
+	list-style: none;
+}
+.bg-cover {
+	background-color: #090a0b;
+}
+.bg-wrap1,
+.bg-wrap2 {
+	overflow: hidden;
+}
+.video-wrap {
+	position: relative;
+}
+.video-bg {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -11.497006rem;
+	width: 22.994012rem;
+}
+video {
+	object-fit: contain;
+}
+.cover-container {	
+	position: relative;
+	margin: 0 auto;
+	padding: 0 0.814371rem;
+	width: 14.371257rem;
+	z-index: 20;
+}
+.header {
+	padding-top: 0.838323rem;
+}
+.header-link {
+	width: 14.371257rem;
+}
+.top-nav {
+	width: 14.371257rem;
+	height: 0.526946rem;
+	font-size: 0;
+}
+.top-nav li {
+	display: inline-block;
+	margin-right: 0.838323rem;
+	width: 1.173653rem;
+	height: 0.526946rem;
+	text-align: center;
+}
+.top-nav li:last-child {
+	margin-right: 0;
+}
+.top-nav li:hover .text1, 
+.top-nav li:hover .text2 {
+	color: #e1c076;
+}
+.top-nav .center {
+	margin-right: 3.952096rem;
+}
+.text1 {
+	height: 0.287425rem;
+	line-height: 0.287425rem;
+	font-size: 0.215569rem;
+	color: #a69e99;
+	transition: color .5s;
+}
+.text2 {
+	height: 0.239521rem;
+	line-height: 0.239521rem;
+	font-size: 12px;
+	font-weight: 300;
+	color: #666;
+	transition: color .5s;
+}
+.dota-logo {
+	display: block;
+	position: absolute;
+	top: 0.419162rem;
+	left: 50%;
+	margin-left: -1.461078rem;
+	width: 3.017964rem;
+	height: 1.856287rem;
+	background: url(http://www.dota2.com.cn/images/cover20170914/logo.png) center center / contain no-repeat;
+}
+.dota-df {
+	text-align: center;
+}
+.m-title {
+	display: block;
+	margin: 1.317365rem auto 10px;
+	width: 8.383234rem;
+	height: 3.592814rem;
+	background: url(http://www.dota2.com.cn/images/cover20171031/dflogo.png) center center / contain no-repeat;
+}
+.m-play {
+	display: block;
+	margin: 0 auto 0.359281rem;
+	width: 0.958084rem;
+	height: 0.958084rem;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, .1);
+	transition: background-color .3s;
+}
+.m-play:hover {
+	background-color: rgba(255, 255, 255, .3);
+}
+.icon-bofangsanjiaoxing {
+	font-size: 0.479042rem;
+	height: 0.958084rem;
+	line-height: 0.958084rem;
+	text-align: center;
+	color: #fff;
+}
+.m-text {
+	margin-bottom: 0.479042rem;
+	font-size: 0.287425rem;
+	color: #e1c076;
+	letter-spacing: 5px;
+}
+.m-btn {
+	display: block;
+	margin: 0 auto 0.359281rem;
+	height: 0.598802rem;
+	line-height: 0.598802rem;
+	width: 3.640719rem;
+	border: 1px solid #e1c076;
+	border-radius: 4px;
+	background-color: rgba(255, 192, 118, .2);
+	color: #e1c076;
+	font-size: 18px;
+	text-align: center;
+	letter-spacing: 3px;
+	transition: background-color .3s;
+}
+.m-btn:hover {
+	background-color: rgba(255, 192, 118, .5);
+}
+.shade-bg {
+	position: absolute;
+	top: 6.886228rem;
+	width: 100%;
+	height: 7.101796rem;
+	background-image: linear-gradient(to top, #090a0b 80%, transparent);
+	z-index: 10;
+}
+.cover-content {
+	padding-top: 0.359281rem;
+}
+.advert-main ul {
+	width: 14.371257rem;
+	font-size: 0;
+}
+.advert-item {
+	display: inline-block;
+	margin-right: 1.077844rem;
+	height: 2.994012rem;
+	width: 4.071856rem;
+	border-radius: 8px;
+	overflow: hidden;
+	transition: .6s;
+}
+.advert-item:last-child {
+	margin-right: 0;
+}
+.advert-item h4 {
+	font-size: 0.239521rem;
+	height: 0.730539rem;
+	line-height: 0.718563rem;
+	color: #6e6e6e;
+	background-color: #1b1617;
+	transition: .6s ease;
+}
+.advert-item span {
+	display: block;
+	height: 2.215569rem;
+}
+.advert-item:nth-child(1) span {
+	background: url(http://img.dota2.com.cn/maps/25/31/2531e48fb05e717d71d5430faa57a7501513771913.jpg) center center / contain no-repeat;
+}
+.advert-item:nth-child(2) span {
+	background: url(http://img.dota2.com.cn/maps/da/f7/daf783a3f201b71c449c15d84eab5c091513773393.jpg) center center / contain no-repeat;
+}
+.advert-item:nth-child(3) span {
+	background: url(http://img.dota2.com.cn/maps/c9/ea/c9ea5f746cf19ac34da898cc266f54871513773397.jpg) center center / contain no-repeat;
+}
+.advert-item:hover h4{
+	color: #fff;
+	background-color: #403047;
+}
+.advert-item:hover {
+	transform: translateY(-0.239521rem);
+}
+.dota-player-box {
+	position: relative;
+	height: 9.305389rem;
+	padding-top: 0.239521rem;
+}
+.new-player,
+.old-player {
+	display: inline-block;
+	position: absolute;
+	top: 2.634731rem;
+	width: 4.071856rem;
+	height: 2.634731rem;
+	transition: all .5s ease-out;
+	opacity: .6;
+	cursor: pointer;
+	z-index: 20;
+}
+.new-player {
+	background: url(http://www.dota2.com.cn/images/cover20171031/cover1700505_05_small.png) center center / contain no-repeat;
+}
+.old-player {
+	right: 0;
+	background: url(http://www.dota2.com.cn/images/cover20171031/cover1700505_06_small.png) center center / contain no-repeat;
+}
+.new-player-pic,
+.old-player-pic {
+	position: absolute;
+	top: 0.634731rem;
+	height: 7.257485rem;
+	width: 9.461078rem;
+	pointer-events: none;
+	z-index: 30;
+}
+.new-player-pic {
+	left: 1.976048rem;
+	background: url(http://www.dota2.com.cn/images/cover20171031/cover161129_bg_08.png) center center / contain no-repeat;
+}
+.old-player-pic {
+	right: 2.155689rem;
+	opacity: 0;
+	background: url(http://www.dota2.com.cn/images/cover20171031/cover161129_bg_09.png) center center / contain no-repeat;
+}
+.new-player:hover,
+.old-player:hover {
+	opacity: 1;
+	transform: translateY(-0.239521rem);
+	z-index: 50;
+}
+.share-model {
+	position: relative;
+	padding: 0.419162rem 0.239521rem 0.239521rem;
+}
+.share-model ul {
+	width: 13.892216rem;
+	height: 0.6rem;
+	font-size: 0;
+}
+.share-model li {
+	display: inline-block;
+	padding-right: 0.335329rem;
+}
+.share-model a {
+	display: inline-block;
+	font-size: 16px;
+	line-height: 0.311377rem;
+	height: 0.359281rem;
+	padding-left: 0.359281rem;
+	background: url(http://www.dota2.com.cn/images/cover2016/icon-share.png?v=0705) 0 0 no-repeat;
+}
+.share-model li:nth-child(2) a {
+	background-position: 0 -600px;
+}
+.share-model li:nth-child(3) a {
+	background-position: 0 -200px;
+}
+.share-model li:nth-child(5) a {
+	padding-left: 0.479042rem;
+	background-position: 0 -300px;
+}
+.share-model li:nth-child(6) a {
+	padding-left: 0.479042rem;
+	background-position: 0 -400px;
+}
+.share-model li:nth-child(7) a {
+	padding-left: 0.479042rem;
+	background-position: 0 -500px;
+}
+.blank-space {
+	width: 0.7rem;
+	height: 0.359281rem;
+}
+.share-model .app-download {
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	top: 0.419162rem;
+	width: 3.520958rem;
+	height: 0.538922rem;
+	background: url(http://www.dota2.com.cn/images/cover20171031/bg_shoplink.png) 0 0 no-repeat;
+}
+.share-model li:hover a {
+	color: red;
+}
+.share-model li:nth-child(1):hover a {
+	background-position: 0 -50px;
+}
+.share-model li:nth-child(2):hover a {
+	background-position: 0 -650px;
+}
+.share-model li:nth-child(3):hover a {
+	background-position: 0 -250px;
+}
+.share-model li:nth-child(5):hover a {
+	background-position: 0 -350px;
+}
+.share-model li:nth-child(6):hover a {
+	background-position: 0 -450px;
+}
+.share-model li:nth-child(7):hover a {
+	background-position: 0 -550px;
+}
+.share-model .app-download:hover {
+	background-position: 0 -46px;
+}
+.new-color {
+	background-color: #0d0f11 !important;
+}
+.bottom {
+	padding-top: 0.598802rem;
+	height: 1.916168rem;
+}
+.bottom-ul {
+	font-size: 0;
+	width: 14.371257rem;
+	height: 0.431138rem;
+}
+.bottom-ul li,
+.bottom-ul li a {
+	display: inline-block;
+	width: 1.125749rem;
+	height: 0.431138rem;
+	padding: 0 0.239521rem;	
+}
+.bottom-ul li:nth-child(1) a {
+	background: url(http://www.dota2.com.cn/public/images/logo-wanmei.png) center center / contain no-repeat;
+}
+.bottom-ul li:nth-child(2) a {
+	background: url(http://www.dota2.com.cn/public/images/logo-valve.png) center center / contain no-repeat;
+}
+.bottom-ul li:nth-child(3) {
+	padding: 0 0 0 0.479042rem;
+	height: 0.431138rem;
+	width: 10rem;
+	text-align: center;
+	font-size: 12px;
+	color: #fff;
+	z-index: 100;
+}
+.author {
+	text-align: center;
+	height: 1.5rem;
+	line-height: 1.5rem;
+	color: red;
+	font-size: 0.479042rem;
+}
