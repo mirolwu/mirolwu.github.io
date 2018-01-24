@@ -104,6 +104,7 @@ function getStyle(obj, key) {
 	var isFirst = true;
 	var isVertical = true;
 	var isWorksFirst = true;
+	var isFirstTouch = true;
 	var wrap = document.querySelector(".wrapper");
 	var content = document.querySelector(".content");
 	var wrapOne = document.querySelector(".wrap-one");
@@ -309,8 +310,11 @@ function getStyle(obj, key) {
 			worksLi[5].style.opacity = 1;
 			worksLi[5].style.transformOrigin = "center center";
 			worksLi[5].style.transition = "all .5s linear";
-			for (var i = 0; i < worksLi.length; i++) {
-				worksLi[i].style.transform = "translate3d(" + arr[i][0] + "rem," + arr[i][1] + "rem, 0) scale(.35)";
+			if (isFirstTouch) {
+				for (var i = 0; i < worksLi.length; i++) {
+					worksLi[i].style.transform = "translate3d(" + arr[i][0] + "rem," + arr[i][1] + "rem, 0) scale(.35)";
+				}
+				isFirstTouch = false;
 			}
 		})
 
