@@ -304,13 +304,14 @@ function getStyle(obj, key) {
 			}
 		});
 
-		worksWrap.addEventListener("touchend", () => {
+		worksWrap.addEventListener("touchend", (e) => {
 			var arr = [[-3.6, -4], [3.6, -4], [-3.6, 1.5], [3.6, 1.5], [-3.6, 7], [3.6, 7]];
 			isWorksFirst = false;
 			worksLi[5].style.opacity = 1;
 			worksLi[5].style.transformOrigin = "center center";
 			worksLi[5].style.transition = "all .5s linear";
 			if (isFirstTouch) {
+				e.preventDefault();
 				for (var i = 0; i < worksLi.length; i++) {
 					worksLi[i].style.transform = "translate3d(" + arr[i][0] + "rem," + arr[i][1] + "rem, 0) scale(.35)";
 				}
