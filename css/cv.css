@@ -387,11 +387,6 @@ img {
 }
 
 
-
-
-
-
-
 .introduce,
 .author,
 .text,
@@ -418,4 +413,9 @@ img {
 .fade-in {
 	opacity: 1;
 	transform: translateY(0);
+}
+.test {
+	display: none;
+	width: 121px !important;
+	height: 75px !important;
 }

@@ -130,6 +130,7 @@ function getStyle(obj, key) {
 	var minY = wrap.offsetHeight - content.offsetHeight;
 
 	if (navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
+
 	   	wrap.addEventListener("touchstart", (e) => {
 		   	content.style.transition = content.style.WebkitTransition = "none";
 		   	startPoint = e.changedTouches[0].pageY;
@@ -190,78 +191,90 @@ function getStyle(obj, key) {
 	   	menuBtn.addEventListener("touchmove", function () {
 	   		this.isMove = true;
 	   	})
-	   	menuBtn.addEventListener("touchend", function (e) {	   	
-		   	var num = Math.round(-cssTransform(content, "translateY") / wrapHeight);
+	   	menuBtn.addEventListener("touchend", function (e) {	
 
-		   	for (var i = 0; i < menuLi.length; i++) {
-		   		menuLi[i].style.color = "white";
-		   	}
-		   	menuLi[num].style.color = "orange";
+	   		window.event ? window.event.cancelBubble = true : e.stopPropagation();
 
 		   	if (!isOpen && !this.isMove) {
+			   	for (var i = 0; i < menuLi.length; i++) {
+			   		menuLi[i].style.color = "white";
+			   	}
+			   	menuLi[Math.abs(times)].style.color = "orange";
 		   		menuBtnSpan[1].style.opacity = 0;
 		   		menuBtnSpan[0].style.width = menuBtnSpan[2].style.width = 1.43 + "rem";
 		   		cssTransform(menuBtnSpan[0], "rotateZ", 45);
 		   		cssTransform(menuBtnSpan[2], "rotateZ", -45);
 		   		cssTransform(nav, "translateX", 0);
+		   		isOpen = !isOpen;
+		   		return;
 		   	} 
-		   	close();
-		   	isOpen = !isOpen;
+		   	if (isOpen && !this.isMove) {
+		   		close();
+		   		isOpen = !isOpen;
+		   	}		   	
 		   	this.isMove = false;
 	   	})
+
+   	   	function close() {
+   		   	if (isOpen && !this.isMove) {
+   		   		menuBtnSpan[1].style.opacity = 1;
+   		   		menuBtnSpan[0].style.width = menuBtnSpan[2].style.width = 1 + "rem";
+   		   		cssTransform(menuBtnSpan[0], "rotateZ", 0);
+   		   		cssTransform(menuBtnSpan[2], "rotateZ", 0);
+   		   		nav.style.transform = "translateX(-100%)";
+   		   	}
+   	   	};
+				
+	   	nav.addEventListener("touchstart", function (e) {
+	   		window.event ? window.event.cancelBubble = true : e.stopPropagation();
+
+   		   	for (var i = 0; i < menuLi.length; i++) {
+   			   	menuLi[i].index = i; 
+
+   			   	menuLi[i].addEventListener("click", function () {
+		   			times = -this.index;
+		   			for (var j = 0; j < menuLi.length; j++) {
+				   		menuLi[j].style.color = "white";
+				   	}
+		   			menuLi[this.index].style.color = "orange";
+		   			close();
+		   			isOpen = false;
+		   			content.style.transition = content.style.WebkitTransition = "none";
+			   		cssTransform(content, "translateY", times * wrapHeight);
+			   		enter();
+					picPos();
+	
+   			   		this.isMove = false;
+   				})
+   		   	}
+	   	})
+
 
 	   	contact();
 	   	function contact() {
 			for (var i = 0; i < contactLi.length - 1; i++) {
-				contactLi[i].isShow = false;
-				contactLi[i].addEventListener("touchmove", function () {
-					this.isMove = true;
-				});
+				// contactLi[i].addEventListener("touchmove", function () {
+				// 	this.isMove = true;
+				// 	this.isShow = false;
+				// })
 
-				contactLi[i].addEventListener("touchend", function (e) {
-					window.event ? window.event.cancelBubble = true : e.stopPropagation();
-					if (!this.isMove && !this.isShow) {
-						this.children[0].className = "contact-detail contact-detail-show";
-					} else {
-						this.children[0].className = "contact-detail";
-					}
-					this.isShow = !this.isShow;
-					this.isMove = false;
+				contactLi[i].addEventListener("click", function (e) {
+					console.log(this.isShow)
+					// if (!this.isMove) {
+
+						window.event ? window.event.cancelBubble = true : e.stopPropagation();
+						if (!this.isShow) {
+							this.children[0].className = "contact-detail contact-detail-show";
+						} else {
+							this.children[0].className = "contact-detail";
+						}
+						this.isShow = !this.isShow;
+					// }
 				})
 			}
 	   	}
 
-	   	function close() {
-		   	if (isOpen && !this.isMove) {
-		   		menuBtnSpan[1].style.opacity = 1;
-		   		menuBtnSpan[0].style.width = menuBtnSpan[2].style.width = 1 + "rem";
-		   		cssTransform(menuBtnSpan[0], "rotateZ", 0);
-		   		cssTransform(menuBtnSpan[2], "rotateZ", 0);
-		   		nav.style.transform = "translateX(-100%)";
-		   	}
-	   	};
 
-	   	for (var i = 0; i < menuLi.length; i++) {
-		   	menuLi[i].index = i;
-		   	menuLi[i].style.color = "white";
-		   	menuLi[i].addEventListener("touchmove", () => {
-		   		this.isMove = true;
-		   	});
-		   	menuLi[i].addEventListener("touchend", function (e) {
-				window.event ? window.event.cancelBubble = true : e.stopPropagation();
-		   		content.style.transition = content.style.WebkitTransition = "none";
-
-		   		if (!this.isMove) {
-		   			times = -this.index;
-		   			close();
-		   			isOpen = false;
-		   		};
-		   		cssTransform(content, "translateY", times * wrapHeight);
-		   		enter();
-				picPos();		   	
-			})
-		   	this.isMove = false;
-	   	}
 
 		more.addEventListener("touchmove", () => {
 			this.isMove = true;
@@ -386,9 +399,10 @@ function getStyle(obj, key) {
 
 	function enter() {
 		var box = document.querySelectorAll(".wrap-content");
-		if (-times) {
+		var enterNum = Math.abs(parseInt(-times - 1));
+		if (enterNum + 1) {
 			setTimeout(() => {
-				box[-times - 1].className = "wrap-content enter-active";
+				box[enterNum].className = "wrap-content enter-active";
 			}, 500);
 		}
 		return;
