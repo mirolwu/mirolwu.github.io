@@ -1,6 +1,7 @@
 @charset "utf-8"; 
 
 .content {
+	-webkit-transition: .5s;
 	transition: .5s;
 }
 .menu-btn {
@@ -14,6 +15,7 @@
 	cursor: pointer;
 }
 .pic-pos {	
+	-webkit-transform: translate3d(7.25rem, 3.2rem, 0) scale(4);
 	transform: translate3d(7.25rem, 3.2rem, 0) scale(4);
 }
 .pc {
@@ -21,6 +23,7 @@
 	top: 50%;
 	right: 0;
 	display: block;
+	-webkit-transform: translateY(-50%);
 	transform: translateY(-50%);
 	width: .6rem;
 	height: 2rem;
@@ -41,6 +44,7 @@
 	position: absolute;
 	bottom: -.04rem;
 	left: 50%;
+	-webkit-transform: translateX(-50%);
 	transform: translateX(-50%);
 	width: .05rem;
 	height: .23rem;
@@ -54,6 +58,7 @@
 .active {
 	box-sizing: border-box;
 	border: 2px solid orange;
+	-webkit-transform: scale(1.5);
 	transform: scale(1.5);
 	background-color: #00CD00 !important;
 }
@@ -62,7 +67,9 @@
 	top: 0;
 	left: 0;
 	display: inline-block;
+	-webkit-transform: scale(0);
 	transform: scale(0);
+	-webkit-transition: all .3s linear;
 	transition: all .3s linear;
 	width: .8rem;
 	height: .2rem;
@@ -77,6 +84,7 @@
 	position: absolute;
 	top: 0;
 	right: 0;
+	-webkit-transform: translateX(100%);
 	transform: translateX(100%);
 	border-width: .1rem;
 	border-style: solid;
@@ -85,6 +93,7 @@
 	height: 0;
 }
 .pc span:hover i {
+	-webkit-transform: translate3d(-120%, -15%, 0) scale(1);
 	transform: translate3d(-120%, -15%, 0) scale(1);
 }
 .introduce {
@@ -120,6 +129,7 @@
 	padding: 0 3rem;
 	line-height: 2;
 	font-size: 0.2rem;
+	-webkit-transition: all .5s linear;
 	transition: all .5s linear;
 }
 .about-me:hover {
@@ -133,6 +143,7 @@
 .wrap-four h1,
 .wrap-five h1 {
 	padding: .1rem;
+	-webkit-transform: translateY(1rem);
 	transform: translateY(1rem);
 	width: 2rem;
 	font-size: .2rem;
@@ -145,7 +156,9 @@
 svg {
 	width: 3rem;
 	height: 3rem;
+	-webkit-transform-origin: center;
 	transform-origin: center;
+	-webkit-transform: rotate(-90deg);
 	transform: rotate(-90deg);
 }
 .skill-name,
@@ -156,6 +169,7 @@ svg {
 	left: 0;
 	width: 100%;
 	height: 5rem;
+	-webkit-transform: translate3d(0, -50%, 0);
 	transform: translate3d(0, -50%, 0);
 }
 .works-wrap li {
@@ -173,10 +187,11 @@ svg {
 }
 .des-wrap {
 	border-radius: 0 0 .1rem .1rem;
+	-webkit-transform-origin: top center; 
 	transform-origin: top center; 
-	overflow: hidden;
 }
 .works-wrap li:hover .des-wrap {
+	-webkit-animation: drop 1s 0s linear;
 	animation: drop 1s 0s linear;
 }
 .works-wrap li:hover {
@@ -204,6 +219,7 @@ svg {
 	line-height: 2rem;
 	font-size: .2rem;
 	border-radius: .1rem;
+	-webkit-transform: translateX(-50%) scale(0);
 	transform: translateX(-50%) scale(0);
 	cursor: pointer;
 }
@@ -221,6 +237,7 @@ img {
 	top: 100%;
 	left: 50%; 
 	display: block;
+	-webkit-transform: translateX(-50%);
 	transform: translateX(-50%);
 	width: 0;
 	height: 0;
@@ -229,8 +246,10 @@ img {
 	border-color: white transparent transparent;
 }
 .contact li:hover .contact-detail{
+	-webkit-transform: translateX(-50%) scale(1);
 	transform: translateX(-50%) scale(1);
 	transition: .5s cubic-bezier(0, -0.13, 0.27, 1.69);
+	-webkit-transition: .5s cubic-bezier(0, -0.13, 0.27, 1.69);
 }
 
 
@@ -253,18 +272,23 @@ img {
 
 @-webkit-keyframes move {
 	0% {
+		-webkit-transform: rotateZ(0deg);
 		transform: rotateZ(0deg);
 	}
 	25% {
+		-webkit-transform: rotateZ(-80deg);
 		transform: rotateZ(-80deg);
 	}
 	50% {
+		-webkit-transform: rotateZ(0deg);
 		transform: rotateZ(0deg);
 	}
 	75% {
+		-webkit-transform: rotateZ(80deg);
 		transform: rotateZ(80deg);
 	}
 	100% {
+		-webkit-transform: rotateZ(0deg);
 		transform: rotateZ(0deg);
 	}
 }
@@ -287,24 +311,31 @@ img {
 }
 @-webkit-keyframes drop {
 	0% {
+		-webkit-transform: translateY(-200%);
 		transform: translateY(-200%);
 	}
 	20% {
+		-webkit-transform: translateY(-100%);
 		transform: translateY(-100%);
 	}
 	30% {
+		-webkit-transform: translateY(0%) rotateX(-40deg);
 		transform: translateY(0%) rotateX(-40deg);
 	}
 	40% {
+		-webkit-transform: translateY(-10%) rotateX(30deg);
 		transform: translateY(-10%) rotateX(30deg);
 	}
 	50% {
+		-webkit-transform: translateY(0%) rotateX(-10deg);
 		transform: translateY(0%) rotateX(-10deg);
 	}
 	75% {
+		-webkit-transform: translateY(0%) rotateX(10deg);
 		transform: translateY(0%) rotateX(10deg);
 	}
 	100% {
+		-webkit-transform: rotateZ(0deg);
 		transform: rotateZ(0deg);
 	}
 }

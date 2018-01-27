@@ -50,7 +50,6 @@ function cssTransform(el,attr,val) {
 		return val;
 	}
 };
-
 !function () {
 	var wrap = document.querySelector(".wrapper");
 	var content = document.querySelector(".content");
@@ -159,8 +158,8 @@ function getStyle(obj, key) {
 
 		   	if (times == -1) {
 		   		var picDis = parseFloat(6.5 + (nowPoint - startPoint) / chooseNum);
-		   		pic.style.transition = "none";
-		   		pic.style.transform = "translate3d(-6.75rem, " + picDis + "rem, 0) scale(4)";
+		   		pic.style.transition = pic.style.WebkitTransition = "none";
+		   		pic.style.transform = pic.style.WebkitTransform = "translate3d(-6.75rem, " + picDis + "rem, 0) scale(4)";
 		   	}
 	   	});
 
@@ -172,7 +171,7 @@ function getStyle(obj, key) {
 		   		times--;
 		   	}
 		   	content.style.transition = content.style.WebkitTransition = ".5s";
-		   	pic.style.transform = "";
+		   	pic.style.transform = pic.style.WebkitTransform = "";
 		   	pic.style.transition = pic.style.WebkitTransition = "all .5s";
 		   	cssTransform(content, "translateY", times * wrapHeight);
 		   	enter();
@@ -259,7 +258,6 @@ function getStyle(obj, key) {
 				// })
 
 				contactLi[i].addEventListener("click", function (e) {
-					console.log(this.isShow)
 					// if (!this.isMove) {
 
 						window.event ? window.event.cancelBubble = true : e.stopPropagation();
@@ -308,10 +306,10 @@ function getStyle(obj, key) {
 			if (!isVertical && isWorksFirst) {
 				var dire = disX > 0 ? parameter * 90 : -parameter * 90;
 				var thisOne = worksLi[5].style;
-				thisOne.transition = "none";
+				thisOne.transition = thisOne.WebkitTransition = "none";
 				thisOne.opacity = 1 - parameter;
-				thisOne.transform = "translateX(" + disX + "px) rotateZ(" + dire + "deg) scale(" + (1 - parameter) + ")";
-				thisOne.transformOrigin = disX < 0 ? "left bottom" : "right bottom";
+				thisOne.transform = thisOne.WebkitTransform = "translateX(" + disX + "px) rotateZ(" + dire + "deg) scale(" + (1 - parameter) + ")";
+				thisOne.transformOrigin = thisOne.WebkitTransformOrigin = disX < 0 ? "left bottom" : "right bottom";
 			}
 		});
 
@@ -319,8 +317,8 @@ function getStyle(obj, key) {
 			var arr = [[-3.6, -4], [3.6, -4], [-3.6, 1.5], [3.6, 1.5], [-3.6, 7], [3.6, 7]];
 			isWorksFirst = false;
 			worksLi[5].style.opacity = 1;
-			worksLi[5].style.transformOrigin = "center center";
-			worksLi[5].style.transition = "all .5s linear";
+			worksLi[5].style.transformOrigin = worksLi[5].style.WebkitTransformOrigin = "center center";
+			worksLi[5].style.transition = worksLi[5].style.WebkitTransition = "all .5s linear";
 			if (isFirstTouch) {
 				e.preventDefault()
 				for (var i = 0; i < worksLi.length; i++) {
@@ -433,9 +431,9 @@ function getStyle(obj, key) {
 	function changeBg() {
 		for (var j = 0; j < allBg.length; j++) {
 			if (isFirst) {
-				allBg[j].style.transition = "none";
+				allBg[j].style.transition = allBg[j].style.WebkitTransition = "none";
 			} else {
-				allBg[j].style.transition = "opacity 2s linear";
+				allBg[j].style.transition = allBg[j].style.WebkitTransition = "opacity 2s linear";
 			}
 			allBg[j].style.opacity = 0;
 		}		
